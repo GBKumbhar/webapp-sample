@@ -28,5 +28,5 @@ jobs:
           docker build -t my-webapp .
           docker images 
           docker ps 
-          docker run -it --name my-app -p8080:8080 my-webapp:latest
+          docker run --rm -d --name my-app -p8080:8080 my-webapp:latest
           docker ps
