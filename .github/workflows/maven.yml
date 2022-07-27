@@ -29,4 +29,5 @@ jobs:
           docker images 
           docker ps 
           docker run --rm -d --name my-app -p8080:8080 my-webapp:latest
+          $hostname} -i
           docker ps
