@@ -5,7 +5,7 @@
 	<groupId>com.conti.webapp</groupId>
 	<artifactId>webapp-sample</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>webapp-sample Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
