@@ -13,6 +13,13 @@ pipeline{
         stage("sonarQube"){
             steps{
                 echo "========executing Static Code Analysis========"
+                 dir('webapp-sample'){
+                    withEnv(['JAVA_HOME=D:/casdev/Softwares/jdk-11.0.15.1']) {
+                        withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'my_sonar_server') {
+                            bat "mvn -X clean sonar:sonar"
+                        }
+                    }
+                }
               
             }
         }
