@@ -1,8 +1,12 @@
 pipeline{
     agent{
         label "ec2-node"
-    }stages{
-    stage("Clone"){
+    }
+    environment{
+        tag = getDockerTag() 
+    }
+    stages{
+        stage("Clone"){
             steps{
                 echo "========executing Static Code Analysis========"
                 deleteDir()
@@ -27,8 +31,19 @@ pipeline{
                     sh " mvn clean install"    
                 }
                 }
-            }
-        
+        }
+        stage("create Docker Image"){
+            script{
+                sh 'docker build -t 00010009/webapp1:${tag} .'
+         	    sh 'docker tag my-image 00010009/webapp1:${tag}'
+         	    sh 'docker images'\
+         	
+         	    withCredentials([string(credentialsId: 'dockpwd', variable: 'dockpwd')]) {
+         		    sh 'docker login -u 00010009 -p $dockpwd '
+         		    sh 'docker push 00010009/webapp1:${tag}'
+         	    }
+            }             
+         }        
         stage("deploy To Tomcat"){
             steps{
                 echo "====++++deploy to tomcat A++++===="
@@ -44,4 +59,10 @@ pipeline{
             }
         }
     }
+}
+
+def getDockerTag(){
+    def tag = sh script: 'git rev-parse HEAD', returnStdout: true ;
+    return tag;
+    
 }
