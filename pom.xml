@@ -33,7 +33,8 @@
 				</executions>
 				<configuration>
 					<repository>00010009/mvn-docker-repo</repository>
-					<tag>${project.version}</tag>					
+					<tag>${project.version}</tag>
+					<pullNewerImage>false</pullNewerImage>
 				</configuration>
 			</plugin>
 		</plugins>
