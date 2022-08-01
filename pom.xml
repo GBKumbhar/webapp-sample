@@ -51,12 +51,12 @@
 			<artifactId>sonar-maven-plugin</artifactId>
 			<version>3.8.0.2131</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin 
+		<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin  --> 
 		<dependency>
 			<groupId>com.spotify</groupId>
 			<artifactId>dockerfile-maven-plugin</artifactId>
 			<version>1.4.13</version>
-		</dependency> -->
+		</dependency> 
 
 	</dependencies>
 </project>
