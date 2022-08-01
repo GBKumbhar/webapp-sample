@@ -25,9 +25,7 @@ jobs:
     - name: Build with Maven
       run: | 
           docker login -u 00010009 -p  ${{ secrets.dockpwd }}
-          mvn -B package --file pom.xml
-          mvn dockerfile:push > dock_out.log
-          cat dock_out.log
+          mvn deploy
           docker images 
           docker ps           
           hostname        
