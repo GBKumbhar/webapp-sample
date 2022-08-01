@@ -16,5 +16,5 @@ RUN ls
 RUN cd bin && ls
 EXPOSE 8080
 RUN ls
-COPY --from=builder target/webapp-sample-0.0.1-SNAPSHOT.war /webapps/
+COPY --from=builder target/webapp-sample-1.0.war /webapps/
 ENTRYPOINT [ "sh" , "bin/startup.sh"]
