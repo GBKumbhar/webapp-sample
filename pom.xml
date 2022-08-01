@@ -18,6 +18,25 @@
 					<attachClasses>true</attachClasses>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>00010009/mvn-docker-repo</repository>
+					<tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -33,6 +52,12 @@
 			<artifactId>sonar-maven-plugin</artifactId>
 			<version>3.8.0.2131</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin 
+		<dependency>
+			<groupId>com.spotify</groupId>
+			<artifactId>dockerfile-maven-plugin</artifactId>
+			<version>1.4.13</version>
+		</dependency> -->
 
 	</dependencies>
 </project>
