@@ -1,7 +1,20 @@
+FROM alpine as builder
+RUN apk add openjdk8
+RUN apk add maven
+COPY . ./
+RUN ls
+RUN mvn clean install
+RUN ls
+RUN cd target/ && ls
+
+
+
 FROM tomcat
 LABEL "author"="Ganesh"
 LABEL "mail"="Ganesh@test.com"
-WORKDIR /webapps
+RUN ls
+RUN cd bin && ls
 EXPOSE 8080
-COPY /target/webapp-sample-1.0.war .
-ENTRYPOINT [ "sh" , "/usr/local/tomcat/bin/startup.bat"]
+RUN ls
+COPY --from=builder target/webapp-sample-0.0.1-SNAPSHOT.war /webapps/
+ENTRYPOINT [ "sh" , "bin/startup.sh"]

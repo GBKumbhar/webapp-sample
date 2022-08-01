@@ -26,10 +26,7 @@ jobs:
       run: | 
           docker login -u 00010009 -p  ${{ secrets.dockpwd }}
           mvn -B package --file pom.xml
-          mvn dockerfile:push
-          docker build -t my-webapp .
+          mvn dockerfile:push      
           docker images 
-          docker ps 
-          docker run --rm -d --name my-app -p8080:8080 my-webapp:latest
-          hostname
-          docker ps
+          docker ps           
+          hostname        
