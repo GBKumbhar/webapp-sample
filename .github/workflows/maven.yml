@@ -24,7 +24,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-          mvn -B package --file pom.xml
+          docker login -u 00010009 -p  ${{ github.dockpwd }}
+          mvn -B package dockerfile:push --file pom.xml
           docker build -t my-webapp .
           docker images 
           docker ps 
