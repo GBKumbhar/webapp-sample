@@ -33,8 +33,7 @@
 				</executions>
 				<configuration>
 					<repository>00010009/mvn-docker-repo</repository>
-					<tag>${project.version}</tag>
-					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+					<tag>${project.version}</tag>					
 				</configuration>
 			</plugin>
 		</plugins>
